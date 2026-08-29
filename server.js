@@ -22,6 +22,9 @@ app.use(express.static(path.join(__dirname, "public"))); //static files use krpa
 app.get("/", (req, res) => {
   res.render("index", { title: "Chess Game" });
 });
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
 
 io.on("connection", (uniquesocket) => {
   console.log("connected");
